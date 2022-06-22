@@ -1,0 +1,22 @@
+:root {
+  --main-text: #e4e7eb;
+  --secondary-text: #8da3b9;
+  --enfasis: #edc7a2;
+  --enfasis-2: #01d8c4;
+  --gunmetal: #1f2933;
+  --card: #323f4b;
+  --task: #52606d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: var(--main-text);
+}
+
+html {
+  font-size: 62.5%;
+  background: var(--gunmetal);
+}

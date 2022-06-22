@@ -1,0 +1,31 @@
+li {
+  display: flex;
+  background: var(--task);
+  width: 288px;
+  height: 40px;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 8px;
+  position: relative;
+  box-shadow: 12px 20px 2px -3px rgb(0 0 0 / 10%);
+}
+
+.todoItem-p {
+  font-size: 1.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todoItem-p__completed {
+  text-decoration: line-through;
+}
+
+li span {
+  font-size: 2rem;
+  margin-right: 8px;
+}
+
+.icon-check__completed {
+  color: green;
+}
