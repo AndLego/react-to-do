@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoNewTask.css";
+import "../styles/components/TodoNewTask.css";
 
 function TodoNewTask() {
 const onClickButton = (msg) => {

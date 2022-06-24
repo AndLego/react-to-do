@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoSearch.css";
+import "../styles/components/TodoSearch.css";
 
 function TodoSearch({searchValue, setSearchValue}) {
   const onSearchValueChange = (event) => {

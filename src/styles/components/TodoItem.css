@@ -1,0 +1,107 @@
+li {
+  display: flex;
+  background: var(--task);
+  width: 288px;
+  height: 48px;
+  align-items: center;
+  border-radius: 4px;
+  padding: 0 8px;
+  position: relative;
+  box-shadow: 12px 20px 2px -3px rgb(0 0 0 / 10%);
+}
+
+.todoItem-p {
+  font-size: 1.6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.todoItem-p__completed {
+  text-decoration: line-through;
+}
+
+/* close button */
+
+.closeTask {
+  position: absolute;
+  font-size: 16px;
+  top: -8px;
+  right: -11px;
+}
+
+.closeTask:hover{
+  cursor: pointer;
+}
+
+/* switch css */
+
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+.checkLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkLabel:hover{
+  cursor: pointer;
+}
+
+.checkLabel span {
+  position: relative;
+  width: 44px;
+  height: 20px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
+  background: var(--notDone);
+  transition: all 0.3s;
+}
+
+.checkLabel span:last-child::before,
+.checkLabel span:last-child::after {
+  content: "";
+  position: absolute;
+}
+
+.checkLabel span:last-child::before {
+  left: 1px;
+  top: 0px;
+  width: 20px;
+  height: 20px;
+  background: var(--main-text);
+  border-radius: 50%;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.checkLabel span:last-child::after {
+  top: 50%;
+  right: 6px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/uncheck-switcher.svg);
+  background-size: 12px 12px;
+}
+
+[type="checkbox"]:checked + label span:last-child {
+  background: var(--enfasis-2);
+}
+
+[type="checkbox"]:checked + label span:last-child::before {
+  transform: translateX(24px);
+}
+
+[type="checkbox"]:checked + label span:last-child::after {
+  width: 14px;
+  height: 14px;
+  /*right: auto;*/
+  left: 8px;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/checkmark-switcher.svg);
+  background-size: 14px 14px;
+}
