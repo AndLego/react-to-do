@@ -1,8 +1,14 @@
 ul{
     list-style: none;
-    margin-top: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+}
+
+.todo-container{
+    height: 66vh;
+    margin-top: 20px;
+    overflow-y: scroll;
+    overscroll-behavior: contain;
 }
