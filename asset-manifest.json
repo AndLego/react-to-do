@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/andlego.github.io/react-to-do/static/css/main.014675c1.css",
+    "main.js": "/andlego.github.io/react-to-do/static/js/main.747b1b23.js",
+    "index.html": "/andlego.github.io/react-to-do/index.html",
+    "main.014675c1.css.map": "/andlego.github.io/react-to-do/static/css/main.014675c1.css.map",
+    "main.747b1b23.js.map": "/andlego.github.io/react-to-do/static/js/main.747b1b23.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.014675c1.css",
+    "static/js/main.747b1b23.js"
+  ]
+}
