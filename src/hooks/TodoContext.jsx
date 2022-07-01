@@ -20,11 +20,50 @@ function TodoProvider(props) {
   //searchValue es la const, el set la funcion que nos permite
   //actualizarlo, React.useState("") el valor inicial de searchValue
 
-  const[openModal, setOpenModal] = React.useState(false)
+  //MODAL
+
+  const [openModal, setOpenModal] = React.useState(false);
+
+  //CLASS ADD-CLOSE BUTTON MODAL
+
+  const [btnText, setBtnText] = React.useState("Add Task");
+  const [{ btnClass, textClass, iconClass }, setClass] = React.useState({
+    btnClass: "icon-btn",
+    textClass: "btn-txt",
+    iconClass: "add-icon",
+  });
+
+  //MODAL ONCLICK BUTTON
+
+  const onClickButton = () => {
+    if (!openModal) {
+      setOpenModal(true);
+
+      setBtnText("Close");
+      setClass({
+        btnClass: "close-btn",
+        textClass: "close-btn-text",
+        iconClass: "",
+      });
+    } else {
+      setOpenModal(false);
+
+      setBtnText("Add Task");
+      setClass({
+        btnClass: "icon-btn",
+        textClass: "btn-txt",
+        iconClass: "add-icon",
+      });
+    }
+
+    // props.setOpenModal(prevState => !prevState);
+  };
+
+  //FILTER SEARCH CODE
 
   const completedTodos = todos.filter((todo) => todo.completed === true).length;
   // !!todo.completed es lo mismo que todo.completed == true
-  
+
   const totalTodos = todos.length;
 
   let searchedTodos = [];
@@ -36,6 +75,16 @@ function TodoProvider(props) {
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);
     });
+  }
+
+  const addTodo = (text, date) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text,
+      date: date,
+    });
+    saveTodos(newTodos)
   }
 
   const toggleCompleteTodos = (text) => {
@@ -63,8 +112,14 @@ function TodoProvider(props) {
         searchedTodos,
         toggleCompleteTodos,
         deleteTodos,
+        addTodo,
         openModal,
         setOpenModal,
+        btnText,
+        btnClass,
+        textClass,
+        iconClass,
+        onClickButton,
       }}
     >
       {props.children}

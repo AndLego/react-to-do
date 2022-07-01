@@ -9,6 +9,7 @@ ul{
 .todo-container{
     height: 66vh;
     margin-top: 20px;
-    overflow-y: scroll;
+    padding-top: 8px;
+    overflow-y: auto;
     overscroll-behavior: contain;
 }

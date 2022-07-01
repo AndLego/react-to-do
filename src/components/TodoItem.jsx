@@ -1,4 +1,5 @@
 import React from "react";
+import { IoTrashBin } from "react-icons/io5";
 import "../styles/components/TodoItem.css";
 
 function TodoItem(props) {
@@ -25,7 +26,9 @@ function TodoItem(props) {
       <p className={`todoItem-p ${props.completed && "todoItem-p__completed"}`}>
         {props.text}
       </p>
-      <span className="closeTask" onClick={props.onDelete}>❌</span>
+      <span className="closeTask" onClick={props.onDelete}>
+        <IoTrashBin className="eraser-Icon" />
+      </span>
     </li>
   );
 }

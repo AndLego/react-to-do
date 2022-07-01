@@ -7,6 +7,9 @@ import { TodoItem } from "../components/TodoItem";
 import { TodoNewTask } from "../components/TodoNewTask";
 import { CreateButton } from "../components/CreateButton";
 import { Modal } from "../components/Modal";
+import { Error } from "../components/Error";
+import { Loader } from "../components/Loader";
+import { EmptyTodo } from "../components/EmptyTodo";
 
 function AppUI() {
   const {
@@ -16,24 +19,25 @@ function AppUI() {
     toggleCompleteTodos,
     deleteTodos,
     openModal,
-    setOpenModal,
   } = React.useContext(TodoContext);
 
   return (
     <>
-      {/* <TodoNewTask /> */}
-
       <TodoCounter />
       <TodoSearch />
 
       <TodoList>
-        {error && <p>Run Bitch...</p>}
-        {loading && <p>Give it a second...</p>}
-        {!loading && !searchedTodos.length && <p>Create your first Todo</p>}
+        {loading && <Loader />}
+
+        {!loading && !searchedTodos.length && !error ? (
+          <EmptyTodo />
+        ) : (
+          error && <Error />
+        )}
 
         {searchedTodos.map((todo) => (
           <TodoItem
-            key={todo.text}
+            key={todo.date}
             text={todo.text}
             completed={todo.completed}
             onComplete={() => toggleCompleteTodos(todo.text)}
@@ -42,13 +46,12 @@ function AppUI() {
         ))}
       </TodoList>
 
-
       {!!openModal && (
         <Modal>
-          <p>{searchedTodos[0]?.text}</p>
+          <TodoNewTask />
         </Modal>
       )}
-      <CreateButton openModal={openModal} setOpenModal={setOpenModal}/>
+      <CreateButton />
     </>
   );
 }

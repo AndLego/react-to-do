@@ -26,9 +26,8 @@ li {
 
 .closeTask {
   position: absolute;
-  font-size: 16px;
-  top: -8px;
-  right: -11px;
+  top: 1px;
+  right: -26px;
 }
 
 .closeTask:hover{
@@ -75,7 +74,6 @@ li {
   height: 20px;
   background: var(--main-text);
   border-radius: 50%;
-  z-index: 1;
   transition: transform 0.3s;
 }
 
@@ -104,4 +102,14 @@ li {
   left: 8px;
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/checkmark-switcher.svg);
   background-size: 14px 14px;
+}
+
+
+svg.eraser-Icon{
+  color: var(--main-text);
+  font-size: 2rem;
+}
+
+svg.eraser-Icon:hover{
+  color: #f92f60;
 }

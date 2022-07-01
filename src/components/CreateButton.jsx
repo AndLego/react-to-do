@@ -1,37 +1,10 @@
 import React from "react";
+import { TodoContext } from "../hooks/TodoContext";
 import "../styles/components/CreateButton.css";
 
-function CreateButton(props) {
-  const [btnText, setBtnText] = React.useState("Add Task");
-  const [{ btnClass, textClass, iconClass }, setClass] = React.useState({
-    btnClass: "icon-btn",
-    textClass: "btn-txt",
-    iconClass: "add-icon",
-  });
-
-  const onClickButton = () => {
-    if (!props.openModal) {
-      props.setOpenModal(true);
-
-      setBtnText("Close");
-      setClass({
-        btnClass: "close-btn",
-        textClass: "close-btn-text",
-        iconClass: "",
-      });
-    } else {
-      props.setOpenModal(false);
-
-      setBtnText("Add Task");
-      setClass({
-        btnClass: "icon-btn",
-        textClass: "btn-txt",
-        iconClass: "add-icon",
-      });
-    }
-
-    // props.setOpenModal(prevState => !prevState);
-  };
+function CreateButton() {
+  const { btnText, btnClass, textClass, iconClass, onClickButton } =
+    React.useContext(TodoContext);
 
   return (
     <div className="btn-container">

@@ -20,13 +20,13 @@ function useLocalStorage(itemName, initialValue) {
           parsedItem = JSON.parse(localStorageItem);
           //metodo para sacar de string y volver objeto
         }
-
         setItem(parsedItem);
         setLoading(false);
       } catch (err) {
         setError(err);
+        setLoading(false);
       }
-    }, 1000);
+    }, 2000);
   });
 
   const saveItem = (newItem) => {
