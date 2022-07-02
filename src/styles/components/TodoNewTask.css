@@ -31,6 +31,7 @@
   padding: 1rem;
   font-size: 1rem;
   color: var(--main-text);
+  resize: none;
 }
 
 .create-input::placeholder {
@@ -62,6 +63,24 @@
   font-family: inherit;
   color: var(--enfasis-2);
  }
+
+ .notSubmitTask {
+  padding: 0.8em 1.8em;
+  margin: 32px 0 12px;
+  border: 2px solid var(--task);
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: .3s;
+  z-index: 1;
+  font-family: inherit;
+  color: var(--task);
+  background: var(--gunmetal)
+ }
  
  .submitTask::before {
   content: '';
@@ -83,4 +102,5 @@
  
  .submitTask:hover {
   color: #111;
+  cursor: pointer;
  }

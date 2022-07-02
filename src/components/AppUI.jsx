@@ -24,7 +24,7 @@ function AppUI() {
   return (
     <>
       <TodoCounter />
-      <TodoSearch />
+      {searchedTodos.length > 0 && <TodoSearch />}
 
       <TodoList>
         {loading && <Loader />}

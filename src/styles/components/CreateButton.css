@@ -41,6 +41,10 @@
   box-shadow: 5px 7px 1px 0px rgba(0, 0, 0, 0.4);
 }
 
+.icon-btn:hover, .close-btn:hover{
+  cursor: pointer;
+}
+
 .add-btn:hover {
   width: 120px;
 }
