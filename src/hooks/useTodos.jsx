@@ -1,14 +1,7 @@
 import React from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
-
-// TodoContext ->nombre que le doy
-// este objeto tiene estas dos propiedades (o componentes)
-// <TodoContext.Provider></TodoContext.Provider>envuelve nuestra app
-// <TodoContext.Consumer></TodoContext.Consumer>nos permite acceder a
-
-function TodoProvider(props) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
@@ -98,8 +91,7 @@ function TodoProvider(props) {
     saveTodos(newTodos);
   };
   return (
-    <TodoContext.Provider
-      value={{
+    {
         loading,
         error,
         totalTodos,
@@ -117,11 +109,8 @@ function TodoProvider(props) {
         textClass,
         iconClass,
         onClickButton,
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
+      }
   );
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

@@ -1,13 +1,10 @@
 import React from "react";
-import { TodoContext } from "../hooks/TodoContext";
 import "../styles/components/TodoNewTask.css";
 
-function TodoNewTask() {
+function TodoNewTask({ addTodo, setOpenModal, onClickButton }) {
   const [disable, setDisable] = React.useState(false);
   const [btnState, setBtnState] = React.useState("notSubmitTask");
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  const { addTodo, setOpenModal, onClickButton } =
-    React.useContext(TodoContext);
 
   const onChange = (event) => {
     setNewTodoValue(event.target.value);

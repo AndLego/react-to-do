@@ -1,11 +1,13 @@
 import React from "react";
-import { TodoContext } from "../hooks/TodoContext";
 import "../styles/components/CreateButton.css";
 
-function CreateButton() {
-  const { btnText, btnClass, textClass, iconClass, onClickButton } =
-    React.useContext(TodoContext);
-
+function CreateButton({
+  btnText,
+  btnClass,
+  textClass,
+  iconClass,
+  onClickButton,
+}) {
   return (
     <div className="btn-container">
       <button className={`${btnClass} add-btn`} onClick={onClickButton}>

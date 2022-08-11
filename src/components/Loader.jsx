@@ -1,10 +1,7 @@
 import React from "react";
-import { TodoContext } from "../hooks/TodoContext";
 import "../styles/components/Loader.css";
 
-function Loader() {
-  const { loading } = React.useContext(TodoContext);
-
+function Loader({ loading }) {
   return (
     <>
       {loading && (
