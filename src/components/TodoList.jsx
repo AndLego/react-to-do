@@ -1,10 +1,27 @@
 import React from "react";
-import "../styles/components/TodoList.css"
+import "../styles/components/TodoList.css";
 
-function TodoList(props) {
+function TodoList({
+  error,
+  onError,
+  loading,
+  onLoading,
+  totalTodos,
+  onEmpty,
+  searchedTodos,
+  onNotFound,
+  render,
+}) {
   return (
     <section className="todo-container">
-      <ul>{props.children}</ul>
+      <ul>
+        {error && onError()}
+        {loading && onLoading()}
+        {!loading && totalTodos === 0 && onEmpty()}
+        {searchedTodos.length === 0 && totalTodos > 0 && onNotFound()}
+
+        {searchedTodos.map(render)}
+      </ul>
     </section>
   );
 }

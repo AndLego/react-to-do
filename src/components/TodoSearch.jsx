@@ -8,12 +8,12 @@ function TodoSearch({ searchValue, setSearchValue }) {
   return (
     <div className="input-group">
       <input
-        // required
+        required
         type="text"
         name="text"
         autoComplete="off"
         className="input"
-        value={searchValue} //tenemos que conectarlo
+        value={searchValue}
         onChange={onSearchValueChange}
       />
       <label className="user-label">Search Task</label>
