@@ -17,8 +17,6 @@ function TodoProvider(props) {
   } = useLocalStorage("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = React.useState("");
-  //searchValue es la const, el set la funcion que nos permite
-  //actualizarlo, React.useState("") el valor inicial de searchValue
 
   //MODAL
 
@@ -59,11 +57,10 @@ function TodoProvider(props) {
     // props.setOpenModal(prevState => !prevState);
   };
 
-  //FILTER SEARCH CODE
-
+  // COMPLETED TODOS COUNTER
   const completedTodos = todos.filter((todo) => todo.completed === true).length;
-  // !!todo.completed es lo mismo que todo.completed == true
-
+  
+  //FILTER SEARCH CODE
   const totalTodos = todos.length;
 
   let searchedTodos = [];

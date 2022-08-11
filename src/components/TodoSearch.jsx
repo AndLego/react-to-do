@@ -1,19 +1,14 @@
 import React from "react";
-import { TodoContext } from "../hooks/TodoContext";
 import "../styles/components/TodoSearch.css";
 
-function TodoSearch() {
-  const {searchValue, setSearchValue} = React.useContext(TodoContext)
-
-
+function TodoSearch({ searchValue, setSearchValue }) {
   const onSearchValueChange = (event) => {
-    setSearchValue(event.target.value)
-  }
-
+    setSearchValue(event.target.value);
+  };
   return (
     <div className="input-group">
       <input
-        required
+        // required
         type="text"
         name="text"
         autoComplete="off"

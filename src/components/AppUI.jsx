@@ -1,5 +1,6 @@
 import React from "react";
 import { TodoContext } from "../hooks/TodoContext";
+import { TodoHeader } from "../components/TodoHeader";
 import { TodoCounter } from "../components/TodoCounter";
 import { TodoSearch } from "../components/TodoSearch";
 import { TodoList } from "../components/TodoList";
@@ -10,6 +11,7 @@ import { Modal } from "../components/Modal";
 import { Error } from "../components/Error";
 import { Loader } from "../components/Loader";
 import { EmptyTodo } from "../components/EmptyTodo";
+import { TodoNotFound } from "../components/TodoNotFound";
 
 function AppUI() {
   const {
@@ -19,21 +21,30 @@ function AppUI() {
     toggleCompleteTodos,
     deleteTodos,
     openModal,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
   } = React.useContext(TodoContext);
 
   return (
     <>
-      <TodoCounter />
-      {searchedTodos.length > 0 && <TodoSearch />}
+      <TodoHeader>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        {console.log(totalTodos)}
+        {!totalTodos == 0 && (
+          <TodoSearch
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
+        )}
+      </TodoHeader>
 
       <TodoList>
         {loading && <Loader />}
-
-        {!loading && !searchedTodos.length && !error ? (
-          <EmptyTodo />
-        ) : (
-          error && <Error />
-        )}
+        {!loading && totalTodos == 0 && <EmptyTodo />}
+        {searchedTodos.length == 0 && totalTodos > 0 && <TodoNotFound />}
+        {error && <Error />}
 
         {searchedTodos.map((todo) => (
           <TodoItem
