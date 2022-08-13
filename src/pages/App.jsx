@@ -13,6 +13,7 @@ import { Error } from "../components/Error";
 import { Loader } from "../components/Loader";
 import { EmptyTodo } from "../components/EmptyTodo";
 import { TodoNotFound } from "../components/TodoNotFound";
+import { ChangeAlertWithStorageListener } from "../components/ChangeAlert";
 
 function App() {
   const {
@@ -33,16 +34,22 @@ function App() {
     btnClass,
     textClass,
     iconClass,
+    sincronize,
   } = useTodos();
 
   return (
     <>
       <TodoHeader>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+          loading={loading}
+        />
         {!totalTodos == 0 && (
           <TodoSearch
             searchValue={searchValue}
             setSearchValue={setSearchValue}
+            loading={loading}
           />
         )}
       </TodoHeader>
@@ -56,7 +63,7 @@ function App() {
         onLoading={() => <Loader loading={loading} />}
         onEmpty={() => <EmptyTodo />}
         onNotFound={() => <TodoNotFound searchValue={searchValue} />}
-        render={todo => (
+        render={(todo) => (
           <TodoItem
             key={todo.date}
             text={todo.text}
@@ -76,7 +83,7 @@ function App() {
           />
         </Modal>
       )}
-      
+
       <CreateButton
         btnText={btnText}
         btnClass={btnClass}
@@ -84,6 +91,8 @@ function App() {
         iconClass={iconClass}
         onClickButton={onClickButton}
       />
+
+      <ChangeAlertWithStorageListener sincronize={sincronize} />
     </>
   );
 }

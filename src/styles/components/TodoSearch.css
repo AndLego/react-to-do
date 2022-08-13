@@ -6,6 +6,10 @@
   margin-top: 16px;
 }
 
+.input-group-loading {
+  display: none;
+}
+
 .input {
   width: 200px;
   border: solid 2px #9aa5b1;

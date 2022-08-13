@@ -5,6 +5,7 @@ function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
+    sincronize,
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
@@ -52,7 +53,7 @@ function useTodos() {
 
   // COMPLETED TODOS COUNTER
   const completedTodos = todos.filter((todo) => todo.completed === true).length;
-  
+
   //FILTER SEARCH CODE
   const totalTodos = todos.length;
 
@@ -74,8 +75,8 @@ function useTodos() {
       text,
       date: date,
     });
-    saveTodos(newTodos)
-  }
+    saveTodos(newTodos);
+  };
 
   const toggleCompleteTodos = (text) => {
     const todoIndex = todos.findIndex((todo) => todo.text === text);
@@ -90,27 +91,26 @@ function useTodos() {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
-  return (
-    {
-        loading,
-        error,
-        totalTodos,
-        completedTodos,
-        searchValue,
-        setSearchValue,
-        searchedTodos,
-        toggleCompleteTodos,
-        deleteTodos,
-        addTodo,
-        openModal,
-        setOpenModal,
-        btnText,
-        btnClass,
-        textClass,
-        iconClass,
-        onClickButton,
-      }
-  );
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    toggleCompleteTodos,
+    deleteTodos,
+    addTodo,
+    openModal,
+    setOpenModal,
+    btnText,
+    btnClass,
+    textClass,
+    iconClass,
+    onClickButton,
+    sincronize,
+  };
 }
 
 export { useTodos };

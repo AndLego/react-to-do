@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/components/TodoSearch.css";
 
-function TodoSearch({ searchValue, setSearchValue }) {
+function TodoSearch({ searchValue, setSearchValue, loading }) {
   const onSearchValueChange = (event) => {
     setSearchValue(event.target.value);
   };
   return (
-    <div className="input-group">
+    <div className={loading ? "input-group-loading" : "input-group"}>
       <input
         required
         type="text"

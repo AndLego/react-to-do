@@ -20,7 +20,7 @@ function TodoList({
         {!loading && totalTodos === 0 && onEmpty()}
         {searchedTodos.length === 0 && totalTodos > 0 && onNotFound()}
 
-        {searchedTodos.map(render)}
+        {!loading && searchedTodos.map(render)}
       </ul>
     </section>
   );

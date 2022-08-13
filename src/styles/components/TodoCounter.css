@@ -13,3 +13,7 @@
 .counter-title {
   color: var(--secondary-text)
 }
+
+.counter-title--loading{
+  display: none;
+}
